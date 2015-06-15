@@ -18,7 +18,7 @@ public class DicewareGenerator {
 	public static void main(String[] args) throws IOException,
 			URISyntaxException {
 		// Load file
-		File f = new File(DicewareGenerator.class.getResource("/diceware_german.txt").toURI());
+		File f = new File(DicewareGenerator.class.getResource("/diceware_german.txt").getFile());
 		Map<String, String> l = new HashMap<String, String>();
 		FileUtils utils = new FileUtils();
 		List<String> lines = utils.readLines(f);
