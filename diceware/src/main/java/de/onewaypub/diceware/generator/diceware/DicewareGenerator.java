@@ -11,7 +11,7 @@ import java.util.Random;
 import org.apache.commons.io.FileUtils;
 
 /**
- * Hello world!
+ * Generates three diceware password types. one lowercase, one camelcase and one camelcase with leetspeak replacements
  *
  */
 public class DicewareGenerator {
@@ -30,7 +30,7 @@ public class DicewareGenerator {
 			}
 		}
 
-		int min = 1111;
+		int min = 11111;
 		int max = 66666;
 		String pwd = "";
 		String pwdUpperCase = "";
@@ -38,7 +38,7 @@ public class DicewareGenerator {
 
 		// generate 4x4 random numbers
 		Random ran = new Random();
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 6; i++) {
 			String pwdPart = null;
 			String number = null;
 			do {
@@ -54,10 +54,17 @@ public class DicewareGenerator {
 		}
 		
 		pwdUpperCaseWithSonderzeichen = pwdUpperCase;
-		pwdUpperCaseWithSonderzeichen = pwdUpperCaseWithSonderzeichen.replaceAll("a|A", "@");
-		pwdUpperCaseWithSonderzeichen = pwdUpperCaseWithSonderzeichen.replaceAll("e|E", "3");
-		pwdUpperCaseWithSonderzeichen = pwdUpperCaseWithSonderzeichen.replaceAll("i|I", "1");
-		pwdUpperCaseWithSonderzeichen = pwdUpperCaseWithSonderzeichen.replaceAll("p|P", "9");
+		// add some leetspeak replacements for more security
+		if(ran.nextBoolean())
+			pwdUpperCaseWithSonderzeichen = pwdUpperCaseWithSonderzeichen.replaceAll("a|A", "@");
+		if(ran.nextBoolean())
+			pwdUpperCaseWithSonderzeichen = pwdUpperCaseWithSonderzeichen.replaceAll("e|E", "3");
+		if(ran.nextBoolean())
+			pwdUpperCaseWithSonderzeichen = pwdUpperCaseWithSonderzeichen.replaceAll("i|I", "1");
+		if(ran.nextBoolean())
+			pwdUpperCaseWithSonderzeichen = pwdUpperCaseWithSonderzeichen.replaceAll("p|P", "9");
+		if(ran.nextBoolean())
+			pwdUpperCaseWithSonderzeichen = pwdUpperCaseWithSonderzeichen.replaceAll("o|O", "0");
 
 		System.out.println("Password: " + pwd);
 		System.out.println("Password with uppercase: " + pwdUpperCase);
