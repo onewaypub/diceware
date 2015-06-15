@@ -47,13 +47,13 @@ public class DicewareGenerator {
 				pwdPart = l.get(number);
 			} while (pwdPart == null);
 			System.out.println("Number: " + number +  "; Password part: " + pwdPart);
-			pwd = pwd + pwdPart;
+			pwd = new String(pwd + pwdPart);
 			char first = Character.toUpperCase(pwdPart.charAt(0));
 			pwdPart = first + pwdPart.substring(1);
 			pwdUpperCase = pwdUpperCase + pwdPart;			
 		}
 		
-		pwdUpperCaseWithSonderzeichen = pwdUpperCase;
+		pwdUpperCaseWithSonderzeichen = new String(pwdUpperCase);
 		// add some leetspeak replacements for more security
 		if(ran.nextBoolean())
 			pwdUpperCaseWithSonderzeichen = pwdUpperCaseWithSonderzeichen.replaceAll("a|A", "@");
