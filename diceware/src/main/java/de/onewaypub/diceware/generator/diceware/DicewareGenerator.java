@@ -38,7 +38,7 @@ public class DicewareGenerator {
 
 		// generate 4x4 random numbers
 		Random ran = new Random();
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 5; i++) {
 			String pwdPart = null;
 			String number = null;
 			do {
